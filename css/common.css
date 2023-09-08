@@ -368,7 +368,7 @@ nav#gnav.fixed .glist > ul > li > a,nav#gnav.prep_fixed .glist > ul > li > a{
 		width: 100%;
 		height: calc(100% - 56px);
 		z-index: 900;
-		background: #FFCCCE;
+		background: #95eb6d;
 		/*background: rgba(0,0,0,0.4);*/
 		border-bottom: none;
 		height: 97%;

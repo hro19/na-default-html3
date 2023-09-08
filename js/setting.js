@@ -1,176 +1,189 @@
-function setting(){
-	"use strict";
-	
+"use strict";
 
-	//ページ内リンク
-	//$('a[href^="#"]').not('.aco').click(function(){
-//	var speed = 500;
-//		var href= $(this).attr("href");
-//		var target = $(href === "#" || href === "" ? 'html' : href);
-//		var position = target.offset().top;
-//		$("html, body").animate({scrollTop:position}, speed, "swing");
-//		return false;
-//	});
+document.addEventListener("DOMContentLoaded", function () {
+  // ページ内リンク
+  var pageLinks = document.querySelectorAll('a[href^="#"]:not(.aco)');
+  pageLinks.forEach(function (link) {
+    link.addEventListener("click", function (event) {
+      event.preventDefault();
+      var speed = 500;
+      var href = link.getAttribute("href");
+      var target = document.querySelector(href === "#" || href === "" ? "html" : href);
+      var position = target.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: position,
+        behavior: "smooth",
+      });
+    });
+  });
 
+  // pageTop アニメーション fadeIn & Out
+  var pageTop = document.querySelector(".gotop");
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 100) {
+      pageTop.style.display = "block";
+    } else {
+      pageTop.style.display = "none";
+    }
+  });
 
-	//pageTop アニメーションfadeIn & Out
-	var pagetop = $('.gotop');
-	$(window).scroll(function () {
-		if ($(this).scrollTop() > 100) {
-			pagetop.fadeIn();
-		} else {
-			pagetop.fadeOut();
-		}
-	});
+  // pageTop アニメーション
+  pageTop.addEventListener("click", function () {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
 
-	//pageTop アニメーション
-	var pagetop = $('.gotop');
-	pagetop.click(function() {
-		$("html").velocity("scroll", { duration: 1200, easing: "ease" });
-		return false;
-	});
+  // ハンバーガーメニューによるスライド
+  var menuButton = document.querySelector("#menu");
+  var menuTrigger = document.querySelector(".menu-trigger");
+  var spGnav = document.querySelector("#sp_gnav");
 
+  menuButton.addEventListener("click", function () {
+    menuTrigger.classList.toggle("active");
+    if (spGnav.style.display === "none" || spGnav.style.display === "") {
+      spGnav.style.display = "block";
+    } else {
+      spGnav.style.display = "none";
+    }
+  });
 
-	//ハンバーガーメニューによるスライド
-	$("#menu").on("click", function() {
-		$(".menu-trigger").toggleClass('active');
-		$("#sp_gnav").slideToggle();
-		return false;
-	});
+  /* PC版 グローバルメニュー固定 */
+  var gnav = document.querySelector("#gnav");
+  var header = document.querySelector("#header");
 
+  var gnavHeight = gnav.offsetHeight;
+  var gnavPosition = gnav.offsetTop;
 
+  window.addEventListener("scroll", function () {
+    var windowHeight = window.innerHeight;
+    var topWindow = window.scrollY;
+    var prepFixedPostion = gnavPosition + gnavHeight;
+    var FixedPostion = 470;
 
-	/*PC版 グローバルメニュー固定*/
+    if (topWindow > FixedPostion) {
+      gnav.classList.add("fixed");
+      gnav.classList.remove("prep_fixed");
+    //   header.style.marginTop = gnavHeight + "px";
+    } else if (topWindow > prepFixedPostion) {
+      gnav.classList.add("prep_fixed");
+      gnav.classList.remove("fixed");
+    //   header.style.marginTop = gnavHeight + "px";
+    } else if (prepFixedPostion > topWindow) {
+      gnav.classList.remove("fixed");
+      gnav.classList.remove("prep_fixed");
+      header.style.marginTop = "0px";
+    }
+  });
 
-		//gnavのdivの高さ取得
-	var gnavHeight = $('#gnav').outerHeight();
-		//gnavの位置高さ取得
-	var gnavPositon = $('#gnav').offset().top;
+  /* スマホのときは #header マージンを無効にする */
+  window.addEventListener("load", function () {
+    var width = window.innerWidth;
+    headerMarginNone(width);
+  });
 
-	$(window).on('load scroll', function() {
- 		var windowHeight = $(window).height(),
-	     	topWindow = $(window).scrollTop();
+  window.addEventListener("resize", function () {
+    var width = window.innerWidth;
+    headerMarginNone(width);
+  });
 
+  function headerMarginNone(width) {
+    if (width < 640) {
+      header.style.marginTop = "0px";
+    }
+  }
 
-	     	//.prep_fixedがセットされる位置
-	     	var prepFixedPostion = gnavPositon + gnavHeight;
-	     	//ここの数値で固定位置を微調整できる
-	     	var FixedPostion = 470;
+  /* PC←→SP ImgChange */
+  window.addEventListener("load", function () {
+    var width = window.innerWidth;
+    imgChange(width);
+  });
 
-  			if(topWindow > FixedPostion){
-   				$('#gnav').addClass("fixed");
-   				$('#gnav').removeClass("prep_fixed");
-   				$('#header').css("margin-top",gnavHeight + "px");
-  			}else if(topWindow > prepFixedPostion){
-   				$('#gnav').addClass("prep_fixed");
-  				$('#gnav').removeClass("fixed");
-   				$('#header').css("margin-top",gnavHeight + "px");
-  			}else if(prepFixedPostion > topWindow){
-  				$('#gnav').removeClass("fixed");
-  				$('#gnav').removeClass("prep_fixed");
-  				$('#header').css("margin-top","0px");
-  	     	//alert(gnavHeight);
-	     	//alert(gnavPositon);
-  			}
- 	});
+  window.addEventListener("resize", function () {
+    var width = window.innerWidth;
+    imgChange(width);
+  });
 
-	/*スマホのときは#headerマージンを無効にする*/
-	$(window).on('load scroll resize', function(){
-		var wid = $(window).width();
-		headerMarginNone(wid);
-	});
-	function headerMarginNone(wid){
-		if( wid < 640 ){
-  			$('#header').css("margin-top","0px");
-		}
-	}
+  function imgChange(width) {
+    var chimgElements = document.querySelectorAll(".chimg");
+    chimgElements.forEach(function (element) {
+      var src = element.getAttribute("src");
+      if (width < 640) {
+        element.setAttribute("src", src.replace("_pc", "_sp"));
+        element.style.visibility = "visible";
+      } else if (width > 640) {
+        element.setAttribute("src", src.replace("_sp", "_pc"));
+        element.style.visibility = "visible";
+      }
+    });
+  }
 
+  // userAgent check
+  var device = navigator.userAgent;
+  if (
+    (device.indexOf("iPhone") > 0 && device.indexOf("iPad") === -1) ||
+    device.indexOf("iPod") > 0 ||
+    device.indexOf("Android") > 0
+  ) {
+    device = "sp";
+  } else {
+    device = "pc";
+  }
 
-	/*PC←→SP ImgChange*/
-	$(window).on('load resize', function(){
-		var wid = $(window).width();
-		imgChange(wid);
-	});
-	
-	function imgChange(wid){
-		if( wid < 640 ){
-			$('.chimg').each(function(){
-				$(this).attr("src",$(this).attr("src").replace('_pc', '_sp')).css('visibility', 'visible');
-			});
+  // スマホの時だけ tel を有効にする
+  if (device === "sp") {
+    var telElements = document.querySelectorAll(".tel");
+    telElements.forEach(function (telElement) {
+      var tel = telElement.getAttribute("data-tel");
+      var telLink = document.createElement("a");
+      telLink.href = "tel:" + tel;
+      telElement.appendChild(telLink);
+      while (telElement.firstChild) {
+        telLink.appendChild(telElement.firstChild);
+      }
+    });
 
-		}else if( wid > 640 ){
-			$('.chimg').each(function(){
-				$(this).attr("src",$(this).attr("src").replace('_sp', '_pc')).css('visibility', 'visible');
-			});
-		}
-	}
+    var telImgElements = document.querySelectorAll(".tel_img");
+    telImgElements.forEach(function (telImgElement) {
+      var tel_img = telImgElement.getAttribute("data-tel");
+      var telLink = document.createElement("a");
+      telLink.href = "tel:" + tel_img;
+      telImgElement.parentNode.replaceChild(telLink, telImgElement);
+      telLink.appendChild(telImgElement);
+    });
+  }
 
-	//userAgent check
-	var device = navigator.userAgent;
-	if((device.indexOf('iPhone') > 0 && device.indexOf('iPad') == -1) || device.indexOf('iPod') > 0 || device.indexOf('Android') > 0){
-		device = 'sp';
-	}else{
-		device = 'pc';
-	}
-		
-	//スマホの時だけtelを有効にする	
-	if((device == 'sp')){
-		//text
-		$('.tel').each(function(){
-			var tel = $(this).data("tel");
-			$(".tel").wrapInner("<a></a>");
-			$("a",this).attr({href:"tel:"+tel});
-		});
-		//image
-		$('.tel_img').each(function(){
-			var tel_img = $(this).data("tel");
-			$(".tel_img").wrap('<a href="tel:'+tel_img+'"></a>');
-		});
-	}
+  /* Acodion */
+  var acoElements = document.querySelectorAll(".aco");
+  acoElements.forEach(function (acoElement) {
+    acoElement.addEventListener("click", function () {
+      acoElement.nextElementSibling.style.display =
+        acoElement.nextElementSibling.style.display === "block" ? "none" : "block";
+      acoElement.classList.toggle("active");
+    });
+  });
 
+  // URL
+  var now = location.href.split("/");
+  var secondDir = now[3];
+  var thirdDir = now[4];
+  var fourthDir = now[5];
+  var endDir = now.slice(now.length - 2, now.length - 1);
 
-	/* Acodion */
-	$('.aco').on('click', function(){
-		var acobtn = $(this);
-		acobtn.next().stop(false, true).slideToggle(200, function(){
-			if(acobtn.hasClass('active')){
-				acobtn.removeClass('active');
-			}else{
-				acobtn.addClass('active');
-			}
-		});
-	});
-
-
-	//URL
-	var now = location.href.split('/');//現在のURLを/で分割
-	var secondDir = now[3];//1階層変数を取得
-	var thirdDir = now[4];//2階層変数を取得
-	var fourthDir = now[5];//3階層変数を取得
-	var endDir = now.slice(now.length-2,now.length-1);//最後の変数を取得
-
-	//コレクションページのタブの位置取得
-	//alert(now);
-	//alert(secondDir);
-	if(now.length >= 7){
-		//alert(fourthDir);
-		$('#collection_tab nav ul li a[href^="/'+secondDir+'/'+thirdDir+'/"]').parent().addClass('active');//一致したものの親にactive要素を追記
-	}else if(now.length >= 6){
-		//alert(secondDir);
-		//alert(thirdDir);
-		$('#collection_tab nav ul li a[href^="/'+secondDir+'/"]').parent().addClass('active');//一致したものの親にactive要素を追記
-	}
-	
-	//ページ内リンク
-	$('a[href^="#"]:not(a[href="#top"],a.menu-trigger)').click(function(){//不要ならNOTは外す
-		var headerHight = 80; //ヘッダの高さ
-		var speed = 500;
-		var href= $(this).attr("href");
-		var target = $(href == "#" || href == "" ? 'html' : href);
-		var position = target.offset().top-headerHight;
-		$("html, body").animate({scrollTop:position}, speed, "swing");
-		return false;
-	});
-
-
-}
+  if (now.length >= 7) {
+    var collectionTabLinks = document.querySelectorAll(
+      '#collection_tab nav ul li a[href^="/' + secondDir + "/" + thirdDir + '/"]'
+    );
+    collectionTabLinks.forEach(function (link) {
+      link.parentNode.classList.add("active");
+    });
+  } else if (now.length >= 6) {
+    var collectionTabLinks = document.querySelectorAll(
+      '#collection_tab nav ul li a[href^="/' + secondDir + '/"]'
+    );
+    collectionTabLinks.forEach(function (link) {
+      link.parentNode.classList.add("active");
+    });
+  }
+});
