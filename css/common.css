@@ -10,8 +10,9 @@
 *******************************************/
 
 /*
-基本
-640px【sp切り替わりポイント】 */
+スマホサイズ (sp): 640px 
+タブレットサイズ(lg): 1024px
+*/
 
 /*------------------------------------------
 	body
@@ -61,7 +62,7 @@ body {
 	}
 }
 /*--------------背景--------------*/
-.bg_gray {}
+/* .bg_gray {} */
 .bg_pink {
 	background-color: #FFCCCE;
 	min-width: 1040px;
@@ -72,8 +73,7 @@ body {
 	}
 }
 /*--------------色指定--------------*/
-.color_gray {
-}
+/* .color_gray {} */
 
 /*--------------メインコンテナ--------------*/
 @media screen and (max-width: 640px) {
@@ -93,8 +93,7 @@ body {
 /*------------------------------------------
 	header(PC版)
 ------------------------------------------*/
-#header {
-}
+/* #header {} */
 .header_inn {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -158,7 +157,7 @@ body {
 		margin-left: 0px;
 	}
 	#header .header_inn i:not(.h_insta){
-		z-index: : -100;
+		z-index: -100;
 	}
 }
 /*------------------------------------------
@@ -375,8 +374,7 @@ nav#gnav.fixed .glist > ul > li > a,nav#gnav.prep_fixed .glist > ul > li > a{
 		overflow: auto;
 		padding: 0px 3% 25px;
 	}
-	#sp_gnav .sp_glist {
-	}
+	/* #sp_gnav .sp_glist {} */
 	#sp_gnav .sp_glist ul{ /* Safari */
 		display: -webkit-box;
 		display: -ms-flexbox;
