@@ -87,14 +87,14 @@ ul{
 /*--------------switch--------------*/
 body .sp {display: none;}
 body .pc {display: block;}
-@media screen and (max-width: 640px) {
+@media (width <= 640px) {
     body .sp {display: block;}
     body .pc {display: none;}
 }
 
 .br_pc{display:block;}
 .br_sp{display:none;}
-@media screen and (max-width: 640px) {
+@media (width <= 640px) {
     .br_pc{display:none;}
     .br_sp{display:block;}
 }
@@ -106,7 +106,7 @@ body .pc {display: block;}
   height: auto;
 }
 
-@media screen and (max-width: 640px) {
+@media (width <= 640px) {
     .fixed {
       position: fixed;
       width: 100%;
