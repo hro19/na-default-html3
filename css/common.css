@@ -1,19 +1,13 @@
 @charset "utf-8";
-@import url("./fontawesome-pro-light.css");
-@import url("./fontawesome-pro-regular.css");
-@import url("./fontawesome-pro-solid.css");
-@import url("./fontawesome-pro-core.css");
 @import url("./basic.css");
 @import url("./title.css");
 /*******************************************
 	/css/common.css
 *******************************************/
-
 /*
-スマホサイズ (sp): 640px 
+スマホサイズ (sp): 640px
 タブレットサイズ(lg): 1024px
 */
-
 /*------------------------------------------
 	body
 ------------------------------------------*/
@@ -423,7 +417,6 @@ article.main {
 	width:50px;
 	height:50px;
 	overflow: hidden;
-	background:#666666;
 	transition: 0.4s;
 	z-index: 100;
 }
