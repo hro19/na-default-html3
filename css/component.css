@@ -48,8 +48,6 @@ a.go_detail {
   font-size: 1.5rem;
   letter-spacing: 2px;
   color: #214980;
-  -webkit-transition: 0.4s;
-  -o-transition: 0.4s;
   transition: 0.4s;
 }
 

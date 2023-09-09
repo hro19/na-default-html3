@@ -82,16 +82,10 @@ body {
 ------------------------------------------*/
 /* #header {} */
 .header_inn {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-	-webkit-box-align: start;
-	-ms-flex-align: start;
-	align-items: flex-start;
-	padding: 49px 30px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 49px 30px 25px;
 }
 
 .header_inn .logo i{
@@ -134,10 +128,8 @@ body {
 		background: rgba(255,255,255,1);
 	}
 	#header .header_inn {
-		-webkit-box-align:center;
-    	-ms-flex-align:center;
-        align-items:center;
-  		padding: 16px 0;
+		align-items: center;
+		padding: 16px 0;
 	}
 	#header .header_inn .logo {
 		width: 190px;
@@ -154,13 +146,10 @@ body {
 	display: none;
 }
 .menu-trigger, .menu-trigger span {
-	display: inline-block;
-	-webkit-transition: all .4s;
-	-o-transition: all .4s;
-	transition: all .4s;
-	-webkit-box-sizing: border-box;
-	        box-sizing: border-box;
-	border-radius: 4px;
+  display: inline-block;
+  transition: all .4s;
+  box-sizing: border-box;
+  border-radius: 4px;
 }
 .menu-trigger {
 	position: fixed;
@@ -192,17 +181,13 @@ body {
 	bottom: 13px;
 }
 .menu-trigger.active span:nth-of-type(1) {
-	-webkit-transform: translateY(11px) rotate(-45deg);
-	-ms-transform: translateY(11px) rotate(-45deg);
-	    transform: translateY(11px) rotate(-45deg);
+  transform: translateY(11px) rotate(-45deg);
 }
 .menu-trigger.active span:nth-of-type(2) {
 	opacity: 0;
 }
 .menu-trigger.active span:nth-of-type(3) {
-	-webkit-transform: translateY(-11px) rotate(45deg);
-	-ms-transform: translateY(-11px) rotate(45deg);
-	    transform: translateY(-11px) rotate(45deg);
+  transform: translateY(-11px) rotate(45deg);
 }
 
 @media (width <= 640px) {
@@ -227,17 +212,11 @@ nav#gnav .glist{
 	margin-bottom: 18px;
 }
 
-nav#gnav .glist > ul{ /* Safari */
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-	-webkit-box-align:center;
-    -ms-flex-align:center;
-    align-items:center;
-	padding: 0 45px;
+nav#gnav .glist > ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 45px;
 }
 nav#gnav .glist > ul > li {
 	position: relative;
@@ -282,19 +261,15 @@ nav#gnav .glist > ul > li> a:hover {
 	グローバルメニュー(PC版 固定前段階ver)
 ------------------------------------------*/
 nav#gnav.prep_fixed {
-	position: fixed;
-	top: -120px;
-	left: 0;
-	right: 0;
-	z-index: 990;
-	background: none;
-	margin: 0 auto;
-	box-shadow: 0 8px 6px -6px rgba(100,100,100,0.1);
-	-webkit-box-shadow: 0 8px 6px -6px rgba(100,100,100,0.1);
-	-moz-box-shadow: 0 8px 6px -6px rgba(100,100,100,0.1);
-	-webkit-transition: 0.5s;
-	-o-transition: 0.5s;
-	transition: 0.5s;
+  position: fixed;
+  top: -120px;
+  left: 0;
+  right: 0;
+  z-index: 990;
+  background: none;
+  margin: 0 auto;
+  box-shadow: 0 8px 6px -6px rgba(100, 100, 100, 0.1);
+  transition: 0.5s;
 }
 /*------------------------------------------
 	グローバルメニュー(PC版 固定ver)
@@ -308,8 +283,6 @@ nav#gnav.fixed {
 	background: rgba(255,255,255,0.95);
 	padding-top: 10px;
 	margin: 0 auto;
-	-webkit-transition: 0.5s;
-	-o-transition: 0.5s;
 	transition: 0.5s;
 	/*border-bottom: solid 1px #DDD;*/
 }
@@ -323,8 +296,6 @@ nav#gnav.fixed .f_logo img, nav#gnav.prep_fixed .f_logo img {
 	width: 30px;
 }
 nav#gnav.fixed .f_logo a, nav#gnav.prep_fixed .f_logo a {
-	-webkit-transition: 0.4s;
-	-o-transition: 0.4s;
 	transition: 0.4s;
 }
 nav#gnav.fixed .f_logo a:hover, nav#gnav.prep_fixed .f_logo a:hover {
@@ -375,16 +346,9 @@ nav#gnav.fixed .glist > ul > li > a,nav#gnav.prep_fixed .glist > ul > li > a{
 		padding: 0px 3% 25px;
 	}
 	/* #sp_gnav .sp_glist {} */
-	#sp_gnav .sp_glist ul{ /* Safari */
-		display: -webkit-box;
-		display: -ms-flexbox;
+	#sp_gnav .sp_glist ul {
 		display: flex;
-		-webkit-box-pack: justify;
-		-ms-flex-pack: justify;
 		justify-content: space-between;
-		-webkit-box-orient: vertical;
-		-webkit-box-direction: normal;
-		-ms-flex-direction: column;
 		flex-direction: column;
 	}
 	#sp_gnav .sp_glist > ul > li{
@@ -461,28 +425,16 @@ i.fa-angle-up{
 #footer .footer_area { /* Safari */
 	padding-top: 80px;
 }
-#footer .footer_area .footmenu { /* Safari */
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex; /* Safari */
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center; /* Safari */
-	-webkit-box-orient: vertical;
-	-webkit-box-align:center;
-    -ms-flex-align:center;
-     align-items:center;
-     margin-bottom: 45px;
+#footer .footer_area .footmenu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 45px;
 }
 
 #footer .footer_area .footmenu ul {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex; /* Safari */
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center; /* Safari */
-	-webkit-box-orient: vertical;
+  display: flex;
+  justify-content: center;
 }
 
 #footer .footer_area .footmenu ul li{
@@ -536,15 +488,11 @@ i.fa-angle-up{
 		padding: 25px 0 0;
 	}
 	#footer .footer_area .footmenu {
-		-webkit-flex-wrap: wrap; /* Safari */
-		flex-wrap:wrap;
+		flex-wrap: wrap;
 		margin-bottom: 0px;
 	}
-	#footer .footer_area .footmenu ul{
-		-webkit-box-orient:vertical;
-		-webkit-box-direction:normal;
-    	-ms-flex-direction:column;
-        flex-direction:column;
+	#footer .footer_area .footmenu ul {
+		flex-direction: column;
 		width: 100%;
 		margin-bottom: 25px;
 	}
@@ -564,25 +512,17 @@ i.fa-angle-up{
 		border-top: 1px solid #ccc;
 	}
 
-
-	#footer .footer_area .footmenu .f_sp_twin{
-		display: -webkit-box;
-		display: -ms-flexbox;
+	#footer .footer_area .footmenu .f_sp_twin {
 		display: flex;
-  		-webkit-box-align:center;
-  		-ms-flex-align:center;
-  		align-items:center;
-	    -webkit-box-pack: justify;
-	    -ms-flex-pack: justify;
-	    justify-content: space-between;
-	    -ms-flex-pack: distribute;
-	    justify-content: space-around;
+		align-items: center;
+		justify-content: space-between;
+		-ms-flex-pack: distribute;
 	}
+
 	#footer .footer_area .footmenu .f_logo{
 		margin-bottom: 0px;
 		width: 130px;
 	}
-
 
 	.copyright {
 		font-size: 1.2rem;

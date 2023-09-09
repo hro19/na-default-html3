@@ -6,18 +6,14 @@
 	reset
 ------------------------------------------*/
 * {
-	-webkit-box-sizing: border-box;
-	   -moz-box-sizing: border-box;
-	        box-sizing: border-box;
-	     -o-box-sizing: border-box;
-	    -ms-box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 h1, h2, h3, h4, h5, h6{
-	font-size: 100%;
-  font-feature-settings: "pkna";
-  font-weight: normal;
+    font-size: 100%;
+    font-feature-settings: "pkna";
+    font-weight: normal;
 	/* font-feature-settings : "palt" 1; */
 }
 
@@ -67,10 +63,6 @@ ul{
 /*--------------hover--------------*/
 .img_link_on a:hover img {
     opacity: .7 !important;
-    filter: alpha(opacity=70) !important;/* ie lt 8 */
-    -ms-filter: alpha(opacity=70) !important;/* ie 8 */
-    -moz-opacity: .7 !important;/* FF lt 1.5, Netscape */
-    -khtml-opacity: .7 !important;/* Safari 1.x */
     transition: .4s;
 }
 
