@@ -25,15 +25,14 @@ body {
 }
 /*--------------inner--------------*/
 .inner, .inner_spwide {
-	max-width: 1040px;
-	min-width: 1040px;
-	width: auto;
+	max-width: 1010px;
+	width: 100%;
 	margin: 0 auto;
 	padding: 0 20px;
 }
 .wide {
-	min-width: 1040px;
-	width: auto;
+	max-width: 1010px;
+	width: 100%;
 	margin: 0 auto;
 }
 
@@ -59,12 +58,6 @@ body {
 /* .bg_gray {} */
 .bg_pink {
 	background-color: #FFCCCE;
-	min-width: 1040px;
-}
-@media screen and (max-width: 640px) {
-	.bg_stone,.bg_pink,.bg_dot,.bg_green {
-		min-width: 100%;
-	}
 }
 /*--------------色指定--------------*/
 /* .color_gray {} */
@@ -267,11 +260,24 @@ nav#gnav .glist > ul > li> a:hover {
 	color: #ccc;
 }
 
+@media screen and (max-width: 1024px) {
+	nav#gnav .glist > ul{
+		padding: 0 15px;
+	}
+
+	nav#gnav .glist > ul > li > a {
+		font-size: 1.4rem;
+		letter-spacing: 1.0px;
+	}
+}
+
 @media screen and (max-width: 640px) {
-nav#gnav {
-	display: none;
+	nav#gnav {
+		display: none;
+	}
 }
-}
+
+
 /*------------------------------------------
 	グローバルメニュー(PC版 固定前段階ver)
 ------------------------------------------*/
@@ -450,7 +456,6 @@ i.fa-angle-up{
 ------------------------------------------*/
 #footer {
 	width: 100%;
-    min-width: 1040px;
 	border-top: 1px solid #ddd;
 }
 #footer .footer_area { /* Safari */
@@ -482,16 +487,6 @@ i.fa-angle-up{
 
 #footer .footer_area .footmenu ul li{
 	position: relative;
-}
-
-#footer .footer_area .footmenu ul li::after{
-	position: absolute;
-	top:20%;
-	right:0;
-	content: "";
-	width: 1px;
-	height: 60%;
-	background-color: #666;
 }
 
 #footer .footer_area .footmenu ul li a{
@@ -556,23 +551,11 @@ i.fa-angle-up{
 	#footer .footer_area .footmenu ul li{
 		text-align: center;
 	}
-	#footer .footer_area .footmenu ul li::after{
-		content: "\f105";
-		font-family:"Font Awesome 5 Light";
-		top:50%;
-		right:15px;
-        transform: translate(0, -50%);
-		margin:auto;
-		background-color: transparent;
-		width: 4%;
-		height: auto;
-		font-size: 9.1vw;
-		color: #ccc;
-	}
+
 	#footer .footer_area .footmenu ul li a{
 		display: block;
 		padding:13px 0;
-		font-size: 4.9vw;
+		font-size: 1.6rem;
 		letter-spacing: 1px;
 		border-bottom: 1px solid #ccc;
 	}
