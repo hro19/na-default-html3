@@ -467,12 +467,12 @@ i.fa-angle-up{
 }
 
 .foot_logo {
-	margin-bottom: 75px;
-	text-align: center;
+	margin-bottom:75px;
 }
 
 .foot_logo img{
 	width: 192px;
+	margin-inline: auto;
 }
 
 @media (width <= 640px) {

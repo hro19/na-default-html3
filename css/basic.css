@@ -77,11 +77,11 @@ ul{
 }
 
 /*--------------switch--------------*/
-body .sp {display: none;}
-body .pc {display: block;}
+.sp {display: none;}
+.pc {display: block;}
 @media (width <= 640px) {
-    body .sp {display: block;}
-    body .pc {display: none;}
+    .sp {display: block;}
+    .pc {display: none;}
 }
 
 .br_pc{display:block;}
